@@ -9,10 +9,12 @@ class HText() {
         set(value) { field = value }
 
     fun selectText(chatID: Long, messageText:String) :String{
+        var messageText = messageText.uppercase()
+        println(messageText)
     var outText = ""
         when (messageText){
-            "Слава" -> outText = "Украјне"
-            "кейс" -> outText = "Работает"
+            "СЛАВА" -> outText = "Украјне"
+            "КЕЙС" -> outText = "Работает"
             else -> outText="Кейс не прописан"
         }
 
