@@ -28,21 +28,13 @@ class BHook : TelegramLongPollingBot() {
             val message = update.message
             val chatId = message.chatId
 
+
             //Проверка на наличие текста в сообщении
-            val responseText = if (message.hasText()) {
+            val responseText : String = HText().selectText(chatId, message.text)
 
-                val messageText = message.text
-                when {
-                    messageText == "А" -> "Glory"
-                    else -> "Вы написали: *$messageText*"
-                }
-            } else {
-                "Я понимаю только текст"
-            }
+
             sendNotification(chatId, responseText)
-
             println("Imput: '" + update.message.text + "'. Output: '" + responseText + "'")
-
 
 
             //если пришло фото----------------------------
